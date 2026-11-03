@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android"],
+  "apple": {
+    "modules": ["ParagonNativeModule"]
+  },
+  "android": {
+    "modules": ["com.identyca.paragonnative.ParagonNativeModule"]
+  }
+}

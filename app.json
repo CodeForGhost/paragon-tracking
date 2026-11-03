@@ -1,25 +1,65 @@
 {
   "expo": {
-    "name": "paragon-app",
-    "slug": "paragon-app",
+    "name": "Paragon ID",
+    "slug": "paragon-id",
+    "scheme": "paragonid",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.identyca.paragonid",
+      "infoPlist": {
+        "NSBluetoothAlwaysUsageDescription": "Paragon ID uses Bluetooth to find and measure nearby xGenTag tags.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
+      "package": "com.identyca.paragonid",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0B3D6E",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "blockedPermissions": ["android.permission.RECORD_AUDIO"]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      "expo-sharing",
+      "expo-mail-composer",
+      "expo-secure-store",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0B3D6E",
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 160
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Paragon ID uses the camera to scan bag tag and asset barcodes for pairing.",
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Paragon ID attaches the phone's position to tag readings it uploads."
+        }
+      ],
+      "expo-build-properties"
+    ],
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }
